@@ -17,14 +17,15 @@ class RouteServiceProvider extends ServiceProvider
     protected $namespace = 'App\Http\Controllers';
 
     /**
+     * 定义路由模型绑定，模式过滤器等 (全局路由变量)
      * Define your route model bindings, pattern filters, etc.
      *
      * @return void
      */
     public function boot()
     {
-        //
-
+        // id必须是数字
+        Route::pattern('id', '[0-9]+');
         parent::boot();
     }
 
