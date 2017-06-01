@@ -1,0 +1,9 @@
+.*
+!.gitignore
+*.json
+*.xml
+*.md
+*.txt
+config/*
+public/index.php
+
