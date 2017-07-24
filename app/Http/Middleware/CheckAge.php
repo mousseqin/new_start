@@ -16,8 +16,7 @@ class CheckAge
     public function handle($request, Closure $next)
     {
         $userId = $request->input('id');
-        print_r($userId);exit;
-        if ($userId <= 200) {
+        if ($userId >= 200) {
             return redirect('home');
         }
         

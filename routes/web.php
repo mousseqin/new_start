@@ -10,15 +10,16 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+$commitType = ['get', 'post'];
 
 Route::get('/', function () {
     return view('welcome');
 });
 
 //Route::get('user/{id}', 'UserController@show');
-Route::match(['get', 'post'],'user/{id}', 'UserController@show')
-        ->middleware(\App\Http\Middleware\CheckAge::class)
-;
+Route::match($commitType,'user/{id}', 'UserController@show');
+Route::get('show/{id}', 'ShowProfile');
+Route::resource('photos', 'PhotoController',['only' => ['index', 'show']]);
 
 
 
@@ -30,9 +31,9 @@ Route::match(['get', 'post'],'user/{id}', 'UserController@show')
 //    return $id;
 //})->where('id','[0-9]+');
 
-//Route::any('foo', function () {
-//    print_r(123);exit;
-//});
+Route::any('foo', function () {
+    print_r(123);exit;
+});
 
 //Route::get('user/{id}', function ($id) {
 //    return 'User '.$id;
