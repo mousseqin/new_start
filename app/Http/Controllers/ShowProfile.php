@@ -15,7 +15,7 @@ class ShowProfile extends Controller
      */
     public function __invoke($id)
     {
-        d(200);
+        d($id);
         return view('user.profile', ['user' => User::findOrFail($id)]);
     }
 }
