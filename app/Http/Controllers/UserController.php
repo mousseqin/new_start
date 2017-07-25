@@ -31,7 +31,7 @@ class UserController extends Controller
         $key = md5("user_{$id}");
         $userRedis = Redis::get($key);
         if(empty($userRedis)){
-            Redis::set($key,$id,true,time()+5);
+            Redis::set($key,$id);
         }
         d($userRedis);
         return view('user.profile', ['user_id' => $id]);
