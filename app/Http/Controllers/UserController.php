@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\RedisController AS redis;
+use App\Http\Controllers\RedisController AS Redis;
 
 class UserController extends Controller
 {
