@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreBlogPost;
 use App\Http\Controllers\RedisController AS Redis;
 
 class UserController extends Controller
@@ -35,5 +36,10 @@ class UserController extends Controller
         }
         d($userRedis);
         return view('user.profile', ['user_id' => $id]);
+    }
+    
+    public function validate_test(StoreBlogPost $request)
+    {
+        
     }
 }

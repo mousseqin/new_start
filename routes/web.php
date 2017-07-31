@@ -43,3 +43,6 @@ Route::any('foo', function () {
 //    //
 //    return 'posts '.$postId.';comment '.$commentId;
 //});
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
