@@ -13,13 +13,11 @@ class CheckAge
      * @param \Closure $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle($request, Closure $next,$age)
     {
-        $userId = $request->input('id');
-        if ($userId >= 200) {
+        if ($age >= 200) {
             return redirect('home');
         }
-        
         return $next($request);
     }
 }

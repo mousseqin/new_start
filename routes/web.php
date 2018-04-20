@@ -15,11 +15,10 @@ $commitType = ['get', 'post'];
 Route::get('/', function () {
     return view('welcome');
 });
-
-//Route::get('user/{id}', 'UserController@show');
-Route::match($commitType,'user/{id}', 'UserController@show');
-Route::get('show/{id}', 'ShowProfile');
-Route::resource('photos', 'PhotoController',['only' => ['index', 'show']]);
+Route::get('user/{id}', 'UserController@show')->middleware('age:30');
+//Route::match($commitType,'user/{id}', 'UserController@show');
+//Route::get('show/{id}', 'ShowProfile');
+//Route::resource('photos', 'PhotoController',['only' => ['index', 'show']]);
 
 
 
@@ -43,6 +42,10 @@ Route::any('foo', function () {
 //    //
 //    return 'posts '.$postId.';comment '.$commentId;
 //});
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

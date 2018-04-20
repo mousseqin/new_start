@@ -40,6 +40,10 @@ class Kernel extends HttpKernel
             'throttle:60,1',
             'bindings',
         ],
+
+        'blog' => [
+            'age',
+        ]
     ];
 
     /**
@@ -56,6 +60,7 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-        'check.age' => \App\Http\Middleware\CheckAge::class,
+        'age' => \App\Http\Middleware\CheckAge::class,
+        'role'=>\App\Http\Middleware\CheckRole::class,
     ];
 }

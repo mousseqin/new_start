@@ -37,6 +37,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
+        d(User::orWhere(['*'],'id','1,3'));
+        return view('user.profile', ['user' => User::findOrFail($id)]);
 //        $key = md5("user_{$id}");
 //        $userRedis = Redis::get($key);
 //        if(empty($userRedis)){
