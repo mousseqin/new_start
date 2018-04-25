@@ -37,15 +37,23 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        d(User::orWhere(['*'],'id','1,3'));
-        return view('user.profile', ['user' => User::findOrFail($id)]);
+//        $users = DB::table('users')
+//            ->leftJoin('posts', 'users.id', '=', 'posts.user_id')
+//            ->get();
 //        $key = md5("user_{$id}");
 //        $userRedis = Redis::get($key);
+//        Redis::hset('web','google','google.cn');
+//        Redis::hset('web','apple','apple.com');
+//        Redis::hset('goods','apple',10);
+//        Redis::hset('goods','pen',8);
+//        Redis::hset('goods','phone',6);
+//        Redis::hset('goods','mouse',2);
+//        Redis::hset('goods','box',1);
 //        if(empty($userRedis)){
-//            Redis::set($key,$id);
+//            Redis::hset($key,'id',$id);
 //        }
 //        $users = DB::select("SELECT * FROM  users WHERE  id = :id", ['id'=>$id]);
-        $users = $this->userTable->where(['id'=>$id])->first();
+        $users = $this->userTable->paginate(2);
         d($users);
         return view('user.profile', ['users' => $users]);
     }
